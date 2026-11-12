@@ -1,0 +1,141 @@
+QUESTION 1: CHECK FOR A RIGHT-ANGLED TRIANGLE
+
+Pseudocode
+----------
+START
+    PROMPT for angle1 and angle2
+    READ angle1 and angle2
+
+    IF angle1 <= 0 OR angle2 <= 0 OR angle1 + angle2 >= 180 THEN
+        PRINT "Invalid triangle angles."
+    ELSE
+        SET angle3 = 180 - (angle1 + angle2)
+
+        IF angle1 = 90 OR angle2 = 90 OR angle3 = 90 THEN
+            PRINT "The triangle is right-angled."
+        ELSE
+            PRINT "The triangle is not right-angled."
+        ENDIF
+    ENDIF
+END
+
+Flowchart
+---------
+                         +-------+
+                         | Start |
+                         +---+---+
+                             |
+                             v
+                 +-----------------------+
+                 | Input angle1, angle2  |
+                 +-----------+-----------+
+                             |
+                             v
+       +-----------------------------------------------+
+       | angle1 <= 0 OR angle2 <= 0 OR                  |
+       | angle1 + angle2 >= 180?                        |
+       +----------------------+------------------------+
+                    Yes       |       No
+               +--------------+       |
+               v                      v
+    +----------------------+   +-----------------------------+
+    | Print "Invalid       |   | angle3 = 180 - (angle1 +    |
+    | triangle angles."    |   | angle2)                     |
+    +----------+-----------+   +--------------+--------------+
+               |                              |
+               |                              v
+               |             +--------------------------------------+
+               |             | angle1 = 90 OR angle2 = 90 OR       |
+               |             | angle3 = 90?                        |
+               |             +-------------------+------------------+
+               |                           Yes   |   No
+               |                     +-----------+   +--------------+
+               |                     v                           v
+               |        +-------------------------+  +------------------------+
+               |        | Print "Right-angled    |  | Print "Not right-       |
+               |        | triangle."             |  | angled."               |
+               |        +------------+------------+  +-----------+------------+
+               |                     |                           |
+               +---------------------+---------------------------+
+                                     |
+                                     v
+                                 +---+---+
+                                 |  End  |
+                                 +-------+
+
+
+QUESTION 2: CHECK IF A NUMBER IS A PALINDROME
+
+Pseudocode
+----------
+START
+    PROMPT for an integer num
+    READ num
+
+    IF num < 0 THEN
+        PRINT "Negative numbers are not palindromes."
+    ELSE
+        SET original = num
+        SET reversed = 0
+
+        WHILE num > 0 DO
+            SET remainder = num MOD 10
+            SET reversed = reversed * 10 + remainder
+            SET num = num DIV 10
+        ENDWHILE
+
+        IF original = reversed THEN
+            PRINT original, " is a palindrome."
+        ELSE
+            PRINT original, " is not a palindrome."
+        ENDIF
+    ENDIF
+END
+
+Flowchart
+---------
+                         +-------+
+                         | Start |
+                         +---+---+
+                             |
+                             v
+                    +----------------+
+                    | Input num      |
+                    +-------+--------+
+                            |
+                            v
+                    +---------------+
+                    | num < 0?      |
+                    +------+--------+
+                     Yes   |   No
+              +------------+   |
+              v                v
+ +-------------------------+  +----------------------------+
+ | Print "Negative numbers |  | original = num             |
+ | are not palindromes."   |  | reversed = 0               |
+ +------------+------------+  +-------------+--------------+
+              |                             |
+              |                             v
+              |                    +----------------+
+              |          +-------->| num > 0?       |
+              |          |         +------+---------+
+              |          |          Yes   |   No
+              |          |     +-----------+   |
+              |          |     v               v
+              |          | +----------------+  +----------------------+
+              |          | | remainder =    |  | original = reversed? |
+              |          | | num MOD 10      |  +----------+-----------+
+              |          | | reversed =      |      Yes   |   No
+              |          | | reversed * 10 + |  +---------+   +--------+
+              |          | | remainder       |  v                     v
+              |          | | num = num DIV 10| +-------------------+ +--------------------+
+              |          | +-------+--------+ | | Print "Palindrome"| | Print "Not a       |
+              |          +---------+          | +---------+---------+ | palindrome."       |
+              |                               |           |           +---------+----------+
+              |                               |           |                     |
+              +-------------------------------+-----------+---------------------+
+                                                          |
+                                                          v
+                                                      +---+---+
+                                                      |  End  |
+                                                      +-------+
